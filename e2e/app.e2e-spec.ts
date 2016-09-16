@@ -1,10 +1,10 @@
-import { TranScheduleTablePage } from './app.po';
+import { Angular2WithLessPage } from './app.po';
 
-describe('tran-schedule-table App', function() {
-  let page: TranScheduleTablePage;
+describe('angular2-with-less App', function() {
+  let page: Angular2WithLessPage;
 
   beforeEach(() => {
-    page = new TranScheduleTablePage();
+    page = new Angular2WithLessPage();
   });
 
   it('should display message saying app works', () => {

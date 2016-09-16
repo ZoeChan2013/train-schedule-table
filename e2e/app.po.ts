@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor/globals';
 
-export class TranScheduleTablePage {
+export class Angular2WithLessPage {
   navigateTo() {
     return browser.get('/');
   }

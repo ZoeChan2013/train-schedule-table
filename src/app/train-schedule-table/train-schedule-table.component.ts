@@ -5,7 +5,7 @@ import  { TrainScheduleService } from './train-schedule.service';
 @Component({
   selector: 'app-train-schedule-table',
   templateUrl: './train-schedule-table.component.html',
-  styleUrls: ['./train-schedule-table.component.css'],
+  styleUrls: ['./train-schedule-table.component.less'],
   entryComponents: [TrainScheduleComponent],
   providers: [TrainScheduleService]
 })

@@ -1,7 +1,7 @@
 import { TrainSchedule } from './train-schedule'
 
 //the data structure is mapping to train-schedule.ts
-export const TRAIN_SCHEDULE: TrainSchedule [] = [
+export const TRAIN_SCHEDULES: TrainSchedule [] = [
     {
         origin: 'Newark Penn Station',
         destination: 'Trenton',

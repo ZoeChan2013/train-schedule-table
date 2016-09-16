@@ -3,7 +3,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-describe('App: TranScheduleTable', () => {
+describe('App: Angular2WithLess', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
