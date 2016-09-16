@@ -1,0 +1,8 @@
+<p>
+  train-schedule-table works!
+</p>
+
+<div *ngFor="let trainSchedule of trainSchedules">
+  <span>{{currentTime}} | </span>
+  <app-train-schedule [schedule]="trainSchedule"></app-train-schedule>
+</div>
