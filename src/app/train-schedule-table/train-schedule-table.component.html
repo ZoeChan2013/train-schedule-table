@@ -1,8 +1,125 @@
-<p>
-  train-schedule-table works!
-</p>
-
-<div *ngFor="let trainSchedule of trainSchedules">
-  <span>{{currentTime}} | </span>
-  <app-train-schedule [schedule]="trainSchedule"></app-train-schedule>
+<div class="alert {{alertClass}}" role="alert" *ngIf="showAlert">
+  The train from <strong>{{changedSchedule.origin}}</strong> to
+  <strong>{{changedSchedule.destination}}</strong> is
+  <strong>{{changedSchedule.currentStatus}}</strong> now.
 </div>
+
+<div class="panel panel-default filter-panel">
+  <div class="panel-body">
+    <h4>Filter</h4>
+
+    <div class="container filter-panel-control">
+      <div class="row">
+        <div class="col-md-1 col-sm-2 btn-group filter-origin">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu-origin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Origin
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="filter by origin">
+              <li><a href="#" (click)="doFilter('origin', 'Newark Penn Station')">Newark Penn Station</a></li>
+              <li><a href="#" (click)="doFilter('origin', 'NY Penn Station')">NY Penn Station</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-1 col-sm-2 btn-group filter-status">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu-status" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Current Status
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="filter by current status">
+              <li><a href="#" (click)="doFilter('currentStatus', 'On Time')">On Time</a></li>
+              <li><a href="#" (click)="doFilter('currentStatus', 'Delay')">Delay</a></li>
+              <li><a href="#" (click)="doFilter('currentStatus', 'Boarding')">Boarding</a></li>
+              <li><a href="#" (click)="doFilter('currentStatus', 'TBD')">TBD</a></li>
+              <li><a href="#" (click)="doFilter('currentStatus', 'All Aboard')">All Aboard</a></li>
+              <li><a href="#" (click)="doFilter('currentStatus', 'Cancelled')">Cancelled</a></li>
+              <li><a href="#" (click)="doFilter('currentStatus', 'Departed')">Departed</a></li>
+              <li><a href="#" (click)="doFilter('currentStatus', 'At Hold')">At Hold</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-1 col-md-offset-7 col-sm-2 filter-remove">
+          <button class="btn btn-info" type="button" (click)="removeFilter()">Remove Filter</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container  filter-label-container">
+      <div class="row">
+        <span class="label label-primary filter-label" *ngFor="let filter of filterValueList">
+          {{filter}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Current Time</th>
+    <th class="row">
+      <div class="col-sm-6">Origin</div>
+      <div class="col-sm-1" (click)="doSorting('origin', true, false)">
+        <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+      </div>
+      <div class="col-sm-1" (click)="doSorting('origin', false, false)">
+        <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+      </div>
+    </th>
+    <th class="row">
+      <div class="col-sm-6">Destination</div>
+      <div class="col-sm-1" (click)="doSorting('destination', true, false)">
+        <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+      </div>
+      <div class="col-sm-1" (click)="doSorting('destination', false, false)">
+        <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+      </div>
+    </th>
+    <th class="row">
+      <div class="col-sm-6">Scheduled At</div>
+      <div class="col-sm-1" (click)="doSorting('scheduledAt', true, true)">
+        <span class="glyphicon glyphicon-sort-by-attributes"></span>
+      </div>
+      <div class="col-sm-1" (click)="doSorting('scheduledAt', false, true)">
+        <span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+      </div>
+    </th>
+    <th class="row">
+      <div class="col-sm-6">Delayed For</div>
+      <div class="col-sm-1" (click)="doSorting('delayedFor', true, true)">
+        <span class="glyphicon glyphicon-sort-by-attributes"></span>
+      </div>
+      <div class="col-sm-1" (click)="doSorting('delayedFor', true, true)">
+        <span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+      </div>
+    </th>
+    <th class="row">
+      <div class="col-sm-6">Track #</div>
+      <div class="col-sm-1" (click)="doSorting('trackNum', true, true)">
+        <span class="glyphicon glyphicon-sort-by-order"></span>
+      </div>
+      <div class="col-sm-1" (click)="doSorting('trackNum', false, true)">
+        <span class="glyphicon glyphicon-sort-by-order-alt"></span>
+      </div>
+    </th>
+    <th>Current Status</th>
+  </tr>
+  <tr *ngFor="let trainSchedule of displayedSchedule"
+      [ngClass]="{
+        'success': trainSchedule.currentStatus==='Boarding',
+        'danger': trainSchedule.currentStatus==='Cancelled',
+        'warning': trainSchedule.currentStatus==='Delay',
+        'info': trainSchedule.currentStatus==='All Aboard',
+        'active': trainSchedule.currentStatus==='Departed'
+      }">
+    <td>{{currentTime| date:'shortTime' }}</td>
+    <td>{{trainSchedule.origin}}</td>
+    <td>{{trainSchedule.destination}}</td>
+    <td>{{trainSchedule.scheduledAt | date:'shortTime' }}</td>
+    <td>{{trainSchedule.delayedFor}}</td>
+    <td>{{trainSchedule.trackNum}}</td>
+    <td>{{trainSchedule.currentStatus}}</td>
+  </tr>
+</table>

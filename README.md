@@ -1,6 +1,6 @@
 # Train Schedule Table (Angular2 Project)
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.14 and is built with [angular2](https://github.com/angular/angular-cli) version 1.0.0-beta.14.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.14 and is built with [angular2](https://github.com/angular/angular) version 2.0.0.
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
