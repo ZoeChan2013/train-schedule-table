@@ -96,9 +96,9 @@ export class TrainScheduleTableComponent implements OnInit {
 
   doSorting(sortBy: string, ascending: boolean, isNum: boolean) {
     if(isNum){
-      this.displayedSchedule = this._trainScheduleService.sortByAlphabet(this.displayedSchedule, sortBy, ascending);
-    } else {
       this.displayedSchedule = this._trainScheduleService.sortByNumber(this.displayedSchedule, sortBy, ascending);
+    } else {
+      this.displayedSchedule = this._trainScheduleService.sortByAlphabet(this.displayedSchedule, sortBy, ascending);
     }
   }
 

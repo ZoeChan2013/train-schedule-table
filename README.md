@@ -1,6 +1,7 @@
 # Train Schedule Table (Angular2 Project)
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.14 and is built with [angular2](https://github.com/angular/angular) version 2.0.0.
+You have to run `npm install -g angular-cli` to install angular-cli before run this project. 
 
 ## Download dependency package
 Run `npm stall` to download all the package you need to start this project.
