@@ -46,7 +46,7 @@
       </div>
     </div>
 
-    <div class="container  filter-label-container">
+    <div class="container filter-label-container">
       <div class="row">
         <span class="label label-primary filter-label" *ngFor="let filter of filterValueList">
           {{filter}}
@@ -91,7 +91,7 @@
       <div class="col-sm-1" (click)="doSorting('delayedFor', true, true)">
         <span class="glyphicon glyphicon-sort-by-attributes"></span>
       </div>
-      <div class="col-sm-1" (click)="doSorting('delayedFor', true, true)">
+      <div class="col-sm-1" (click)="doSorting('delayedFor', true, false)">
         <span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
       </div>
     </th>
