@@ -1,4 +1,4 @@
-<div class="alert {{alertClass}}" role="alert" *ngIf="showAlert">
+<div class="alert {{alertClass}}" role="alert" *ngIf="showAlert" id="test">
   The train from <strong>{{changedSchedule.origin}}</strong> to
   <strong>{{changedSchedule.destination}}</strong> is
   <strong>{{changedSchedule.currentStatus}}</strong> now.
@@ -17,8 +17,8 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="filter by origin">
-              <li><a href="#" (click)="doFilter('origin', 'Newark Penn Station')">Newark Penn Station</a></li>
-              <li><a href="#" (click)="doFilter('origin', 'NY Penn Station')">NY Penn Station</a></li>
+              <li><a href="javascript:avoid(0);" (click)="doFilter('origin', 'Newark Penn Station')">Newark Penn Station</a></li>
+              <li><a href="javascript:avoid(0);" (click)="doFilter('origin', 'NY Penn Station')">NY Penn Station</a></li>
             </ul>
           </div>
         </div>
@@ -29,14 +29,14 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="filter by current status">
-              <li><a href="#" (click)="doFilter('currentStatus', 'On Time')">On Time</a></li>
-              <li><a href="#" (click)="doFilter('currentStatus', 'Delay')">Delay</a></li>
-              <li><a href="#" (click)="doFilter('currentStatus', 'Boarding')">Boarding</a></li>
-              <li><a href="#" (click)="doFilter('currentStatus', 'TBD')">TBD</a></li>
-              <li><a href="#" (click)="doFilter('currentStatus', 'All Aboard')">All Aboard</a></li>
-              <li><a href="#" (click)="doFilter('currentStatus', 'Cancelled')">Cancelled</a></li>
-              <li><a href="#" (click)="doFilter('currentStatus', 'Departed')">Departed</a></li>
-              <li><a href="#" (click)="doFilter('currentStatus', 'At Hold')">At Hold</a></li>
+              <li><a href="javascript:avoid(0);" (click)="doFilter('currentStatus', 'On Time')">On Time</a></li>
+              <li><a href="javascript:avoid(0);" (click)="doFilter('currentStatus', 'Delay')">Delay</a></li>
+              <li><a href="javascript:avoid(0);" (click)="doFilter('currentStatus', 'Boarding')">Boarding</a></li>
+              <li><a href="javascript:avoid(0);" (click)="doFilter('currentStatus', 'TBD')">TBD</a></li>
+              <li><a href="javascript:avoid(0);" (click)="doFilter('currentStatus', 'All Aboard')">All Aboard</a></li>
+              <li><a href="javascript:avoid(0);" (click)="doFilter('currentStatus', 'Cancelled')">Cancelled</a></li>
+              <li><a href="javascript:avoid(0);" (click)="doFilter('currentStatus', 'Departed')">Departed</a></li>
+              <li><a href="javascript:avoid(0);" (click)="doFilter('currentStatus', 'At Hold')">At Hold</a></li>
             </ul>
           </div>
         </div>
